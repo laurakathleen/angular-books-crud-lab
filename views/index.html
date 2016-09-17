@@ -1,34 +1,32 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="books-crud-lab">
+<html lang="en" ng-app="libraryApp">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Angular-books-crud-lab</title>
 
-    <!-- STYLESHEETS -->
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <!-- Bootstrap CSS -->
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-            
-    <link rel="stylesheet" href="/styles/styles.css">
+    <!-- My StyleSheet -->
+    <link rel="stylesheet" href="/public/styles/styles.css">
 
-    <!-- VENDOR SCRIPTS -->
-    <script src="/vendor/angular/angular.min.js"></script>
-    <script src="/vendor/angular-route/angular-route.min.js"></script>
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"></script>
 
     <!-- APPLICATION SCRIPTS -->
-    <script src="/scripts/app.js"></script>
-    <script src="/scripts/controllers/BooksIndexController.js"></script>
-    <script src="/scripts/controllers/BooksShowController.js"></script>
+    <script src="/public/scripts/app.js"></script>
+    <script src="/public/scripts/controllers/BooksIndexController.js"></script>
+    <script src="/public/scripts/controllers/BooksShowController.js"></script>
   </head>
   <body>
     <div class="container">
       <div class="row">
         <div class="col m12">
           <p>Test run</p>
+          <div ng-view></div>
         </div>
       </div>
     </div>
