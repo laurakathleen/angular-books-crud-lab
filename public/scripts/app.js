@@ -1,20 +1,26 @@
-angular.module('libraryApp', [])
-       .controller('BooksIndexController', BooksIndexController);
+angular.module('libraryApp', ['ngRoute'])
+       .config(config);
 
-console.log('BooksIndexController connected!');
+config.$inject = ['$routeProvider', '$locationProvider'];
 
-BooksIndexController.$inject = ['$http'];
-
-function BooksIndexController($http) {
-  var vm = this;
-
-  $http({
-      method: 'GET',
-      url: 'https://super-crud.herokuapp.com/books'
-    }).then(function successCallback(response) {
-      console.log('getting all books in BooksIndexController', response.data);
-      vm.books = response.data.books;
-    }, function errorCallback(response) {
-      console.log('There was an error getting the data BooksIndexController', error);
+function config(   $routeProvider,  $locationProvider   ) {
+  $routeProvider
+    .when('/', {
+    templateUrl: '/views/templates/books.html',
+    controllerAs: 'booksIndexCtrl',
+    controller: 'BooksIndexController'
+  })
+    .when('/books/:id', {
+      templateUrl: '/views/templates/books-show.html',
+      controllerAs: 'booksShowCtrl',
+      controller: 'BooksShowController'
+    })
+    .otherwise({
+      redirectTo: '/'
     });
+
+  $locationProvider.html5Mode({
+    enabled: true,
+    requireBase: false
+  });
 }

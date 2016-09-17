@@ -1,0 +1,16 @@
+ <div class="container">
+	<div>
+		<ul>
+			<li ng-repeat="books in booksIndexCtrl.books">
+				<h4 class='inline-header'>Book Name:</h4>
+		    	<span>{{books.title}}</span>
+		    
+				<h4 class='inline-header'>Artist Name:</h4>
+		      	<span>{{books.author}}</span>
+		      
+		    	<h4 class='inline-header'>Released date:</h4>
+		    	<span>{{books.releaseDate}}</span>  
+		    </li>
+		</ul>
+    </div>
+</div>
