@@ -1,9 +1,9 @@
- <div class="container">
-	<div>
+ <div class="container" >
+	<div class="row" ng-controller="BooksIndexController as booksIndexCtrl">
 		<ul>
 			<li ng-repeat="books in booksIndexCtrl.books">
 				<h4 class='inline-header'>Book Name:</h4>
-		    	<span>{{books.title}}</span>
+				<a ng-href="/books/{{books._id}}">{{books.title}}</a>
 		    
 				<h4 class='inline-header'>Artist Name:</h4>
 		      	<span>{{books.author}}</span>

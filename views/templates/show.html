@@ -1,0 +1,27 @@
+
+	<div class="row" id="show-background-img">
+		<!-- img id="image" src="http://mettenorgaard.com/images/css/open-book-final-2.png"> -->
+		<div id="book-info">
+			<div class="col-m-6">
+				<img ng-src="{{booksShowCtrl.book.image}}" class="img-responsive">
+			</div>
+			<div class="col-m-6 offset-col-m-6">
+				<hr>
+				<h2><span ng-hide="editing">{{booksShowCtrl.book.title}}</span></h2>
+				<input ng-show="editing" ng-model="booksShowCtrl.book.title" type="text" class="form-control input-md">
+				<hr>
+				<p>By</p>
+				<p ng-hide="editing">{{booksShowCtrl.book.author}}</p>
+				<input ng-show="editing" ng-model="booksShowCtrl.book.author" type="text" class="form-control input-md">
+				<br>
+				<p ng-hide="editing"> Released: {{booksShowCtrl.book.releaseDate}}</p>
+				<input ng-show="editing" ng-model="booksShowCtrl.book.releaseDate" type="text" class="form-control input-md">
+					<!-- buttons to edit/delete -->
+				<div class='buttons-container'>
+      				<button class='btn btn-danger' ng-click="booksShowCtrl.deleteBook(book)">Delete Book</button>
+      				<button class='btn btn-info' ng-hide="editing" ng-click="editing = true">Edit Book</button>
+      				<button class='btn btn-success' ng-show="editing" ng-click="booksShowCtrl.editBook(book); editing = false">Save Changes</button>
+      			</div>
+			</div>
+		</div>
+	</div>

@@ -3,7 +3,7 @@ angular.module('libraryApp', ['ngRoute'])
 
 config.$inject = ['$routeProvider', '$locationProvider'];
 
-function config(   $routeProvider,  $locationProvider   ) {
+function config($routeProvider,  $locationProvider) {
   $routeProvider
     .when('/', {
     templateUrl: '/views/templates/books.html',
@@ -11,15 +11,16 @@ function config(   $routeProvider,  $locationProvider   ) {
     controller: 'BooksIndexController'
   })
     .when('/books/:id', {
-      templateUrl: '/views/templates/books-show.html',
+      templateUrl: '/views/templates/show.html',
       controllerAs: 'booksShowCtrl',
       controller: 'BooksShowController'
     })
     .otherwise({
       redirectTo: '/'
-    });
+    })
 
-  $locationProvider.html5Mode({
+  $locationProvider
+    .html5Mode({
     enabled: true,
     requireBase: false
   });
