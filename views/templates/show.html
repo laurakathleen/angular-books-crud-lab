@@ -1,13 +1,12 @@
-
+<div class="container" id="show-one-book">
 	<div class="row" id="show-background-img">
-		<!-- img id="image" src="http://mettenorgaard.com/images/css/open-book-final-2.png"> -->
 		<div id="book-info">
-			<div class="col-m-6">
+			<div class="col-m-4">
 				<img id="book-img" ng-src="{{booksShowCtrl.book.image}}" class="img-responsive">
 			</div>
-			<div class="col-m-6 offset-col-m-6">
+			<div class="one-book-info">
 				<hr>
-				<h2><span ng-hide="editing">{{booksShowCtrl.book.title}}</span></h2>
+				<h2 ng-hide="editing">{{booksShowCtrl.book.title}}</h2>
 				<input ng-show="editing" ng-model="booksShowCtrl.book.title" type="text" class="form-control input-md">
 				<hr>
 				<p>By</p>
@@ -18,10 +17,15 @@
 				<input ng-show="editing" ng-model="booksShowCtrl.book.releaseDate" type="text" class="form-control input-md">
 					<!-- buttons to edit/delete -->
 				<div class='buttons-container'>
-      				<button class='btn btn-danger' ng-click="booksShowCtrl.deleteBook(booksShowCtrl.book)">Delete Book</button>
+      				<button class='btn btn-danger' ng-click="booksShowCtrl.deleteBook(booksShowCtrl.book); deleted = true">Delete Book</button>
               		<button class='btn btn-info' ng-hide="editing" ng-click="editing = true">Edit Book</button>
               		<button class='btn btn-success' ng-show="editing" ng-click="booksShowCtrl.editBook(booksShowCtrl.book);editing = false">Save Changes</button>
       			</div>
 			</div>
+			<div class="col-m-4 deleted-book-div" ng-show="deleted">
+				<p>{{booksShowCtrl.book.title}} has been deleted</p>
+				<a href="#index-main">Back to books</a>
+      		</div>
 		</div>
 	</div>
+</div>
