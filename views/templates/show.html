@@ -16,9 +16,10 @@
 				<p ng-hide="editing"> Released: {{booksShowCtrl.book.releaseDate}}</p>
 				<input ng-show="editing" ng-model="booksShowCtrl.book.releaseDate" type="text" class="form-control input-md">
 					<!-- buttons to edit/delete -->
-				<div class='buttons-container'>
+				<div class='buttons-container col-m-12'>
       				<button class='btn btn-danger' ng-click="booksShowCtrl.deleteBook(booksShowCtrl.book); deleted = true">Delete Book</button>
               		<button class='btn btn-info' ng-hide="editing" ng-click="editing = true">Edit Book</button>
+              		<button class='btn btn-submit' ng-show="editing" ng-click="editing = false">Cancel</button>
               		<button class='btn btn-success' ng-show="editing" ng-click="booksShowCtrl.editBook(booksShowCtrl.book);editing = false">Save Changes</button>
       			</div>
 			</div>
