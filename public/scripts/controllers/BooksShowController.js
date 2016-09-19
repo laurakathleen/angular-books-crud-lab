@@ -21,25 +21,37 @@ function BooksShowController ( $http, $routeParams) {
       console.log('There was an error getting the data BooksIndexController', response);
     });
 
-  vm.editBook = function(book){
+  vm.editBook = function(bookEdit){
+    var bookEditId = $routeParams.id;
     $http({
       method: 'PUT',
-      url: 'https://super-crud.herokuapp.com/books/' + bookId,
-      data: book
-    }).then(function successUpdateCallback(response){
+      url: 'https://super-crud.herokuapp.com/books/' + bookEditId,
+      data: {
+        title : bookEdit.title,
+        author : bookEdit.author,
+        image : bookEdit.image,
+        releaseDate : bookEdit.releaseDate
+      }
+      }).then(function successUpdateCallback(data){
       console.log('updating one book', response.data);
-    }, function errorUpdateCallback(response){
+      console.log(bookEdit._id);
+      vm.book = response.data;
+      $location.path('/');
+      }, function errorUpdateCallback(response){
       console.log('problem while updating book', response.data, error);
-    });
-  }
+      });
+    };
 
  vm.deleteBook = function(book) {
+  var bookDeleteId = $routeParams.id;
   $http({
     method: 'DELETE',
-    url: 'https://super-crud.herokuapp.com/books/'+ bookId
+    url: 'https://super-crud.herokuapp.com/books/'+ bookDeleteId
   }).then(function successDeleteCallback(response) {
-    var index = vm.books.indexOf(book);
+    console.log(bookDeleteId);
+    var index = vm.books.indexOf(bookDeleteId);
     vm.books.splice(index,1);
+    $location.path('/');
   }, function errorDeleteCallback(response) {
     console.log('There was an error deleting the data', response);
   });

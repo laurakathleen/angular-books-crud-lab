@@ -3,7 +3,7 @@
 		<!-- img id="image" src="http://mettenorgaard.com/images/css/open-book-final-2.png"> -->
 		<div id="book-info">
 			<div class="col-m-6">
-				<img ng-src="{{booksShowCtrl.book.image}}" class="img-responsive">
+				<img id="book-img" ng-src="{{booksShowCtrl.book.image}}" class="img-responsive">
 			</div>
 			<div class="col-m-6 offset-col-m-6">
 				<hr>
@@ -18,9 +18,9 @@
 				<input ng-show="editing" ng-model="booksShowCtrl.book.releaseDate" type="text" class="form-control input-md">
 					<!-- buttons to edit/delete -->
 				<div class='buttons-container'>
-      				<button class='btn btn-danger' ng-click="booksShowCtrl.deleteBook(book)">Delete Book</button>
-      				<button class='btn btn-info' ng-hide="editing" ng-click="editing = true">Edit Book</button>
-      				<button class='btn btn-success' ng-show="editing" ng-click="booksShowCtrl.editBook(book); editing = false">Save Changes</button>
+      				<button class='btn btn-danger' ng-click="booksShowCtrl.deleteBook(booksShowCtrl.book)">Delete Book</button>
+              		<button class='btn btn-info' ng-hide="editing" ng-click="editing = true">Edit Book</button>
+              		<button class='btn btn-success' ng-show="editing" ng-click="booksShowCtrl.editBook(booksShowCtrl.book);editing = false">Save Changes</button>
       			</div>
 			</div>
 		</div>

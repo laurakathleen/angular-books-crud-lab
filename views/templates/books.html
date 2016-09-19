@@ -1,16 +1,15 @@
- <div class="container" >
-	<div class="row" ng-controller="BooksIndexController as booksIndexCtrl">
-		<ul>
-			<li ng-repeat="books in booksIndexCtrl.books">
-				<h4 class='inline-header'>Book Name:</h4>
-				<a ng-href="/books/{{books._id}}">{{books.title}}</a>
-		    
-				<h4 class='inline-header'>Artist Name:</h4>
-		      	<span>{{books.author}}</span>
-		      
-		    	<h4 class='inline-header'>Released date:</h4>
-		    	<span>{{books.releaseDate}}</span>  
-		    </li>
-		</ul>
-    </div>
+<div class="jumbotron" class="container" ng-controller="BooksIndexController as booksIndexCtrl">
+	<img id="splash-img" src="https://image.freepik.com/free-vector/library-bookshelf_23-2147502675.jpg">
+	<div class="container" id="list-all-books">
+		<div class="row col-m-12 horizontal-display">
+			<ul class="list-inline">
+				<li class="list-book" ng-repeat="books in booksIndexCtrl.books">
+					<a ng-href="/books/{{books._id}}"><img class="list-book-img" ng-src="{{books.image}}" class="img-responsive"></a>
+					<h4 class='inline-header'>{{books.title}}</h4>
+					<h4 class='inline-header'><span>{{books.author}}</span></h4>
+			    	<h4 class='inline-header'>Released:<br><span>{{books.releaseDate}}</span></h4>
+			    </li>
+			</ul>
+	    </div>
+	</div>
 </div>
